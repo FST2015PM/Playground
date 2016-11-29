@@ -1,0 +1,21 @@
+{
+  "name": "playground",
+  "description": "Playground app",
+  "main": "index.html",
+  "authors": [
+    "Hasdai Pacheco"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/FST2015PM/Playground",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

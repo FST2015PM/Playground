@@ -1,0 +1,22 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "Playground app",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FST2015PM/Playground.git"
+  },
+  "author": "Hasdai Pacheco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FST2015PM/Playground/issues"
+  },
+  "homepage": "https://github.com/FST2015PM/Playground#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
