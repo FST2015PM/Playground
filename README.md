@@ -1,7 +1,16 @@
 # Playground
 Repositorio para pruebas y experimentación con los frameworks y bibliotecas de visualización de datos.
 
-## Setup
+## Estructura del repositorio
+Existe una carpeta para experimentar con [gráficas](https://github.com/FST2015PM/Playground/tree/master/charts), [tablas](https://github.com/FST2015PM/Playground/tree/master/datatables) y [mapas](https://github.com/FST2015PM/Playground/tree/master/maps) respectivamente. Cada carpeta tiene una estructura similar a la siguiente:
+
+````bash
+├── index.html  //Boilerplate de una página con bootstrap
+├── css  //Directorio para agregar hojas de estilo
+└── js //Directorio para agregar código javascript o bibliotecas necesarias
+````
+
+## Preparación del ambiente
 
 ### Instalar nodejs
 Para instalar nodejs puede consultar la [página oficial](https://nodejs.org/en/) o [este wiki](https://github.com/haxdai/AEB1011Exercises/wiki/Node-JS).
@@ -46,11 +55,9 @@ http-server -p 9000
 * Hacer las modificaciones a los archivos
 * Enviar los cambios al repositorio
 
-## Estructura del repositorio
-Existe una carpeta para experimentar con [gráficas](https://github.com/FST2015PM/Playground/tree/master/charts), [tablas](https://github.com/FST2015PM/Playground/tree/master/datatables) y [mapas](https://github.com/FST2015PM/Playground/tree/master/maps) respectivamente. Cada carpeta tiene una estructura similar a la siguiente:
+## Herramientas para desarrollo
+Editores de código:
 
-````bash
-├── index.html  //Boilerplate de una página con bootstrap
-├── css  //Directorio para agregar hojas de estilo
-└── js //Directorio para agregar código javascript o bibliotecas necesarias
-````
+* [Atom](https://atom.io/) (recomendado)
+* [Brackets](http://brackets.io/)
+* [Netbeans IDE](https://netbeans.org/)
