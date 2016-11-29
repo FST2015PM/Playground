@@ -17,6 +17,5 @@
   },
   "homepage": "https://github.com/FST2015PM/Playground#readme",
   "devDependencies": {
-    "http-server": "^0.9.0"
   }
 }
