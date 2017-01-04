@@ -9,12 +9,29 @@
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/map2d3.js"></script>
   </head>
   <body>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="http://d3js.org/queue.v1.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
-    <script src="../js/map2d3.js"></script>
+    <div class="container">
+      <div class="row">
+        <div id = "div1" class="col-xs-12 col-md-5">
+        </div>
+        <div id = "div2" class="col-xs-12 col-md-5">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="csv">Archivo CVS</label>
+      <input id="csv"type="text" ></label><br>
+      <label for="mapa">Div Mapa</label>
+      <input id="mapa"type="text" ></label><br>
+      <label for="msg">Div Mensaje</label>
+      <input id="msg"type="text" ></label>
+    <div>
+    <input class="btn btn-default" type="button" value="genera mapa" onclick=createMap()>
   </body>
 </html>
