@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Ejemplos de mapas con LEAFLET</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../libraries/leaflet/leaflet.css">
+  <script src="../libraries/leaflet/leaflet.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Leaflet</h1><hr>
+      <div class="row">
+      <div class="col-xs-12 col-md-5"><div class="map" id="map1"></div><p>Introducci&oacute;n a Mapbox, agregar marcadores para
+        indicar puntos principales, poligonos y popup. Se agrego evento onclick. </p></div>
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-5"><div class="map" id="map2"></div></div>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../js/states.js"></script>
+<script>
+
+  var mymap = L.map('map1').setView([25.793, -108.977], 12);
+  L.tileLayer('https://api.mapbox.com/styles/v1/ismene93/ciwcwzju6000f2plkb4k1qk38/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXNtZW5lOTMiLCJhIjoiY2l3Y3c3MXo4MDZlcjJvbTcybml5emRsYiJ9.P0J9VRG2kvpUhayggVa2fA', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+   }).addTo(mymap);
+   var marker1 = L.marker([25.789, -109.004]).addTo(mymap);
+   var marker2 = L.marker([25.761, -108.967]).addTo(mymap);
+   var circle = L.circle([25.744, -108.993], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 1000
+    }).addTo(mymap);
+
+    var polygon = L.polygon([
+      [25.782, -109.029],
+      [25.772, -108.984],
+      [25.757, -109.011]
+    ]).addTo(mymap);
+
+    marker1.bindPopup("<b>Parque</b>").openPopup();
+    marker2.bindPopup("<b>Estaci&oacute;n de Trenes</b>");
+    circle.bindPopup("&Aacute;rea uno");
+    polygon.bindPopup("&Aacute;rea dos");
+
+    var popup = L.popup();
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Coordenadas seleccionadas  " + e.latlng.toString())
+            .openOn(mymap);
+    }
+   mymap.on('click', onMapClick);
+
+
+  var map = L.map('map2').setView([37.8, -96], 3);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/ismene93/ciwd28yeq000h2pnafgwqprhz/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXNtZW5lOTMiLCJhIjoiY2l3Y3c3MXo4MDZlcjJvbTcybml5emRsYiJ9.P0J9VRG2kvpUhayggVa2fA', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+  }).addTo(map);
+
+
+  //funcion para indicar el color con el que se va a colorear una zona usando la pagina http://colorbrewer2.org/ para obtener colores
+  function getColor(d) {
+		return d > 1000 ? '#800026' :
+				d > 500  ? '#BD0026' :
+				d > 200  ? '#E31A1C' :
+				d > 100  ? '#FC4E2A' :
+				d > 50   ? '#FD8D3C' :
+				d > 20   ? '#FEB24C' :
+				d > 10   ? '#FED976' :
+							'#FFEDA0';
+	}
+
+	function setstyle(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 0.7,
+			fillColor: getColor(feature.properties.density) //le pasa el parametro indicando la ubicacion en del json
+		};
+	}
+
+	var geojson = L.geoJson(statesData, {
+		style: setstyle, // se indica la propiedad, igual a la funcion a utilizar 
+	}).addTo(map);
+</script>
+</html>
